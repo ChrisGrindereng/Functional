@@ -1,0 +1,6 @@
+C:\Users\cog04\TIY\FunctionalPractice\FunctionalPractice\FunctionalPractice\bin\Debug\FunctionalPractice.exe.config
+C:\Users\cog04\TIY\FunctionalPractice\FunctionalPractice\FunctionalPractice\obj\Debug\FunctionalPractice.csprojResolveAssemblyReference.cache
+C:\Users\cog04\TIY\FunctionalPractice\FunctionalPractice\FunctionalPractice\bin\Debug\FunctionalPractice.exe
+C:\Users\cog04\TIY\FunctionalPractice\FunctionalPractice\FunctionalPractice\bin\Debug\FunctionalPractice.pdb
+C:\Users\cog04\TIY\FunctionalPractice\FunctionalPractice\FunctionalPractice\obj\Debug\FunctionalPractice.exe
+C:\Users\cog04\TIY\FunctionalPractice\FunctionalPractice\FunctionalPractice\obj\Debug\FunctionalPractice.pdb
