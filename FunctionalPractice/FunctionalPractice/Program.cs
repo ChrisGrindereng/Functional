@@ -46,13 +46,13 @@ public class Program
 
     public static int sumAll(params int[] num)
     {
-        // YOUR CODE HERE
-        //int sum = 0;
+        //YOUR CODE HERE
+        int sum = 0;
 
-        //for(int i = 0; i < num.Length; i++)
-        //{
-        //    sum = sum + num[i];    
-        //}
+        for (int i = 0; i < num.Length; i++)
+        {
+            sum = sum + num[i];
+        }
 
         return sumOfArray(num);
     }
@@ -199,8 +199,6 @@ public class Program
         {
             return max(a, b);
         }
-
-
     }
 
     /**
@@ -212,15 +210,13 @@ public class Program
 
     public static int maxOfAll(params int[] nums)
     {
-        int mx = 0;
-        for (int i = nums.Length-1; i > 0; i--)
+        int mx = nums[0];
+        foreach (int i in nums)
         {
-            mx = max(nums[mx], nums[i]);
-
+            if (i >= mx) mx = i;
         }
         return mx;
     }
-
     /**
      * PART 7
      *
@@ -231,18 +227,8 @@ public class Program
     public static bool isVowel(string c)
     {
         // YOUR CODE HERE
-        string[] vowels = new string[4];
-        vowels[0] = "a";
-        vowels[1] = "e";
-        vowels[2] = "i";
-        vowels[3] = "o";
-        vowels[4] = "u";
-
-        bool isvowel;
-
-        foreach( string i in vowels string.Compare(c))
-        return ;
-        
+        string[] vowels = { "a", "e", "i", "o", "u" };
+        return vowels.Where(x => x == c.ToLower()).Count() != 0;  
     }
 
     /**
@@ -259,10 +245,23 @@ public class Program
 
     public static string rovarspraket(string s)
     {
-        // YOUR CODE HERE
-        return "";
-    }
+        char[] c = s.ToLower().ToCharArray();
+        string rover = "";
 
+        foreach (char ch in c)
+        {
+            if (isVowel(ch.ToString()))
+            {
+                 rover += ch.ToString();
+            }
+            else
+            {
+                rover +=(ch.ToString() + $"o{ch}");
+            }
+        }
+        return rover;
+     } 
+         
     /**
      * Part 9
      *
@@ -274,8 +273,13 @@ public class Program
 
     public static string reverse(string str)
     {
-        // YOUR CODE HERE
-        return "";
+        char[] characters = str.ToCharArray();
+        string reversed = "";
+        foreach (char c in characters)
+        {
+            reversed = reversed.Insert(0, c.ToString());
+        }
+        return reversed;
     }
 
     /**
@@ -289,8 +293,13 @@ public class Program
 
     public static string findLongestWord(string sentence)
     {
-        // YOUR CODE HERE
-        return "";
+        string[] words = sentence.Split(new char[]{' ', '\''});
+        string longWord = words[0];
+        foreach (string w in words)
+        {
+            if (w.Length > longWord.Length) { longWord = w; }
+        }
+        return longWord;
     }
 
     public static void Main()
@@ -316,7 +325,7 @@ public class Program
         Debug.Assert(LCM(10, 10) == 10);
         Debug.Assert(LCM(2, 5) == 10);
         Debug.Assert(LCM(3, 6) == 6);
-        //Debug.Assert(LCM(0, 1) == 1);
+        Debug.Assert(LCM(0, 1) == 0);
 
         Debug.Assert(fizzbuzz(1) == ".");
         Debug.Assert(fizzbuzz(2) == "..");
@@ -333,24 +342,24 @@ public class Program
         Debug.Assert(maxOfThree(0, 3, -1) == 3);
         Debug.Assert(maxOfThree(10, 3, 50) == 50);
         Debug.Assert(maxOfThree(-1, -3, -10) == -1);
-        //Debug.Assert(maxOfAll(-30, -50, -1, -3, -10, -11, -20) == -1);
-        //Debug.Assert(maxOfAll(10, 20, 11, 53, 100, 211, -20) == 211);
+        Debug.Assert(maxOfAll(-30, -50, -1, -3, -10, -11, -20) == -1);
+        Debug.Assert(maxOfAll(10, 20, 11, 53, 100, 211, -20) == 211);
 
         Debug.Assert(isVowel("B") == false);
         Debug.Assert(isVowel("b") == false);
         Debug.Assert(isVowel("a") == true);
         Debug.Assert(isVowel("E") == true);
 
-        //Debug.Assert(rovarspraket("a") == "a");
-        //Debug.Assert(rovarspraket("b") == "bob");
-        //Debug.Assert(rovarspraket("cat") == "cocatot");
-        //Debug.Assert(rovarspraket("javascript") == "jojavovasoscocroripoptot");
+        Debug.Assert(rovarspraket("a") == "a");
+        Debug.Assert(rovarspraket("b") == "bob");
+        Debug.Assert(rovarspraket("cat") == "cocatot");
+        Debug.Assert(rovarspraket("javascript") == "jojavovasoscocroripoptot");
 
-        //Debug.Assert(reverse("books") == "skoob");
-        //Debug.Assert(reverse("we don't want no trouble") == "elbuort on tnaw t'nod ew");
+        Debug.Assert(reverse("books") == "skoob");
+        Debug.Assert(reverse("we don't want no trouble") == "elbuort on tnaw t'nod ew");
 
-        //Debug.Assert(findLongestWord("book dogs") == "book");
-        //Debug.Assert(findLongestWord("don't mess with Texas") == "Texas");
+        Debug.Assert(findLongestWord("book dogs") == "book");
+        Debug.Assert(findLongestWord("don't mess with Texas") == "Texas");
 
         Console.ReadLine();
     }
