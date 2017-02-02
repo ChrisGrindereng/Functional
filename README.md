@@ -1,7 +1,7 @@
 # Functional
 
 - A number of exercises for practicing functions and algorithms.
-- Most are solved using imperative functions. (Except the "isVowel" function in "Part 7" which uses an elegant lambda expression I'm quite proud of.)
+- Most are solved using imperative functions. (Except the "isVowel" function in "Part 7" which uses an elegant lambda expression.)
 
 ##The following is a list of all the functions and parts:
 
